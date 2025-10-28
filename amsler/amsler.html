@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amsler Grid - Visual Toolkit</title>
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="stylesheet" href="amsler.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">�️ Visual Toolkit</a>
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../color-contrast/test.html">Color & Contrast</a></li>
+                        <li><a href="../wellness/exercises.html">Eye Wellness</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="test-header">
+                <h1>Amsler Grid Test</h1>
+                <p class="test-subtitle">Central vision and metamorphopsia detection</p>
+            </div>
+
+            <!-- Instructions -->
+            <div class="instruction-panel">
+                <h3>📋 Instructions</h3>
+                <p><strong>Cover one eye and focus on the central dot. Do the lines appear twisted, blurred, or with missing areas?</strong></p>
+                <ol class="instruction-list">
+                    <li>Position yourself approximately 33 cm (arm's length) from the screen</li>
+                    <li>Cover one eye with your hand (without pressing)</li>
+                    <li>Keep your gaze fixed on the central dot of the grid</li>
+                    <li>Without moving your eyes from the central point, observe the peripheral lines</li>
+                    <li>Report any distortion, blurred areas, or missing lines</li>
+                </ol>
+            </div>
+
+            <!-- Amsler Grid -->
+            <div class="grid-container">
+                <canvas id="amslerGrid" width="400" height="400" role="img" aria-label="Amsler Grid with central fixation point"></canvas>
+            </div>
+
+            <!-- Report Button -->
+            <div class="report-section">
+                <button id="reportAnomaly" class="btn btn-primary">Report Anomaly</button>
+            </div>
+
+            <!-- Modal for Anomaly Report -->
+            <div id="anomalyModal" class="modal" style="display: none;" role="dialog" aria-labelledby="modalTitle" aria-modal="true">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 id="modalTitle">Report Visual Anomaly</h3>
+                        <button class="close-btn" id="closeModal" aria-label="Close modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="anomalyForm">
+                            <div class="form-group">
+                                <label for="eyeUsed">Eye tested:</label>
+                                <select id="eyeUsed" required>
+                                    <option value="">Select eye</option>
+                                    <option value="left">Left eye</option>
+                                    <option value="right">Right eye</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="distortionType">Perceived distortion:</label>
+                                <select id="distortionType" required>
+                                    <option value="">Select distortion type</option>
+                                    <option value="twisted-lines">Twisted or curved lines</option>
+                                    <option value="missing-areas">Missing areas or lines</option>
+                                    <option value="blurred-areas">Blurred or gray areas</option>
+                                    <option value="multiple">Multiple distortions</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="additionalNotes">Additional notes:</label>
+                                <textarea id="additionalNotes" rows="3" placeholder="Describe any other visual anomalies..."></textarea>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Submit Report</button>
+                                <button type="button" class="btn btn-secondary" id="cancelReport">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Information Panel -->
+            <div class="info-panel">
+                <h3>ℹ️ About the Amsler Grid</h3>
+                <p>
+                    The Amsler grid is a diagnostic tool used to detect problems in central vision, 
+                    especially in the macula. It is particularly useful for early detection of:
+                </p>
+                <ul>
+                    <li><strong>Macular degeneration:</strong> Age-related (AMD)</li>
+                    <li><strong>Metamorphopsia:</strong> Distortion of straight lines</li>
+                    <li><strong>Scotomas:</strong> Blind spots in the central visual field</li>
+                    <li><strong>Macular edema:</strong> Swelling in the central region of the retina</li>
+                </ul>
+                
+                <div class="clinical-note">
+                    <strong>Clinical Note:</strong> This test is a preliminary screening tool. 
+                    Abnormal results require immediate professional evaluation by an ophthalmologist.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Visual Toolkit - Amsler Grid Test</p>
+                <p>Educational tool based on clinical standards</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="amsler.js"></script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Toolkit for Eye Health</title>
+    <link rel="stylesheet" href="shared.css">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            color: var(--clinical-white);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--clinical-white);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            opacity: 1;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+        
+        .tool-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .tool-card {
+            background: var(--clinical-white);
+            border: 1px solid var(--border-gray);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tool-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--light-blue), var(--accent-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: var(--clinical-white);
+        }
+        
+        .tool-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .tool-description {
+            color: var(--text-medium);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .disclaimer {
+            background: var(--light-gray);
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            padding: 25px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .disclaimer h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+        
+        .disclaimer p {
+            color: var(--text-medium);
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="https://www.oculox.com" target="_blank" class="logo" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="https://oculox.com/wp-content/uploads/2025/02/logo_def_200x45.svg" 
+                         alt="Oculox Logo" 
+                         style="height: 35px; width: auto;">
+                    <span style="font-size: 1.5rem; font-weight: 600; color: var(--clinical-white);">Visual Toolkit</span>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#tools">Tools</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Visual Toolkit for Eye Health</h1>
+            <p class="hero-subtitle">Professional demonstration tools for ophthalmic patient exploration</p>
+        </div>
+    </section>
+
+    <main>
+        <div class="container">
+            <section id="tools">
+                <div class="tool-cards">
+                    <!-- Amsler Grid -->
+                    <a href="amsler/amsler.html" class="tool-card">
+                        <div class="tool-icon">📋</div>
+                        <h3>Amsler Grid</h3>
+                        <p class="tool-description">
+                            Test central vision and detect metamorphopsia using the standard Amsler grid pattern.
+                            Identify visual distortions and blind spots in the central visual field.
+                        </p>
+                        <div class="btn btn-primary">Start Amsler Test</div>
+                    </a>
+
+                    <!-- Color & Contrast Check -->
+                    <a href="color-contrast/test.html" class="tool-card">
+                        <div class="tool-icon">🌈</div>
+                        <h3>Color & Contrast Check</h3>
+                        <p class="tool-description">
+                            Evaluate color perception and contrast sensitivity. 
+                            Detect color vision deficiencies and contrast perception issues.
+                        </p>
+                        <div class="btn btn-primary">Start Color Test</div>
+                    </a>
+
+                    <!-- Eye Wellness Trainer -->
+                    <a href="wellness/exercises.html" class="tool-card">
+                        <div class="tool-icon">💪</div>
+                        <h3>Eye Wellness Trainer</h3>
+                        <p class="tool-description">
+                            Guided eye exercises to reduce visual fatigue and improve eye health.
+                            Focus/distance training with timer-based sessions.
+                        </p>
+                        <div class="btn btn-primary">Start Training</div>
+                    </a>
+                </div>
+
+                <div class="disclaimer">
+                    <h3>Important Notice</h3>
+                    <p><strong>This is a demonstration tool</strong> for UX exploration with patients under ophthalmologic control.</p>
+                    <p>This toolkit is <strong>not a medical device</strong> and should not be used for clinical diagnosis.</p>
+                    <p>Inspired by real clinical practices for educational and demonstration purposes only.</p>
+                    <p>Always consult with a qualified eye care professional for proper examination and diagnosis.</p>
+                </div>
+            </section>
+
+            <section id="about" class="mt-4">
+                <div class="card">
+                    <h2>About Visual Toolkit</h2>
+                    <p>
+                        The Visual Toolkit is a demonstration platform designed to showcase digital health 
+                        tools for ophthalmologic patient engagement. Built with web standards and 
+                        accessibility in mind.
+                    </p>
+                    
+                    <h3>Key Features:</h3>
+                    <ul style="margin-left: 20px; color: var(--text-medium); line-height: 1.8;">
+                        <li>✅ Clinical-inspired interface design</li>
+                        <li>✅ Standards-based visual tests</li>
+                        <li>✅ Accessible and responsive design</li>
+                        <li>✅ No complex frameworks required</li>
+                        <li>✅ Static web deployment ready</li>
+                    </ul>
+                    
+                    <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-gray);">
+                        <p style="font-size: 14px; color: var(--text-medium);">
+                            <strong>Version:</strong> 1.0 MVP | 
+                            <strong>Last updated:</strong> October 2025 | 
+                            <strong>Purpose:</strong> Demo Dev. by Ivan Muracciole for <a href="https://www.oculox.com" target="_blank" style="color: var(--primary-blue);">www.oculox.com</a>
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Visual Toolkit for Eye Health - Demo Dev. by Ivan Muracciole for <a href="https://www.oculox.com" target="_blank" style="color: var(--light-blue);">www.oculox.com</a></p>
+                <p>Developed for ophthalmologic patient UX exploration</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /**
+         * Simple navigation functionality
+         * Handles smooth scrolling and basic interactions
+         */
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Add fade-in animation on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe tool cards for animation
+            document.querySelectorAll('.tool-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+
+            console.log('Visual Toolkit for Eye Health - MVP loaded');
+        });
+    </script>
+</body>
+</html>

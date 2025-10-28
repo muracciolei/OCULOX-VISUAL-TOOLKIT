@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eye Wellness Trainer - Visual Toolkit</title>
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="stylesheet" href="wellness.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">🔍 Visual Toolkit</a>
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../amsler/amsler.html">Amsler Grid</a></li>
+                        <li><a href="../color-contrast/test.html">Color & Contrast</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="wellness-header">
+                <h1>Eye Wellness Trainer</h1>
+                <p class="wellness-subtitle">Focus distance and near exercise with timer</p>
+            </div>
+
+            <!-- Focus Distance Exercise -->
+            <div class="exercise-section active">
+                <h2>Focus Distance Exercise</h2>
+                
+                <div class="exercise-instructions">
+                    <h4>Instructions:</h4>
+                    <ol>
+                        <li>Hold your thumb about 6 inches (15cm) from your face</li>
+                        <li>Focus on your thumb for the specified time</li>
+                        <li>Then focus on an object at least 10 feet (3m) away</li>
+                        <li>Alternate between near and far focus as guided</li>
+                        <li>Keep your head still, only move your eyes</li>
+                    </ol>
+                </div>
+
+                <div class="exercise-setup">
+                    <h4>Exercise Setup:</h4>
+                    <div class="setup-controls">
+                        <div class="control-group">
+                            <label for="exerciseDuration">Total Duration (minutes):</label>
+                            <select id="exerciseDuration">
+                                <option value="2">2 minutes</option>
+                                <option value="3" selected>3 minutes</option>
+                                <option value="5">5 minutes</option>
+                                <option value="10">10 minutes</option>
+                            </select>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label for="focusInterval">Focus Interval (seconds):</label>
+                            <select id="focusInterval">
+                                <option value="3">3 seconds</option>
+                                <option value="5" selected>5 seconds</option>
+                                <option value="10">10 seconds</option>
+                                <option value="15">15 seconds</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-controls">
+                        <button class="btn btn-primary" id="startExercise">Start Exercise</button>
+                        <button class="btn btn-secondary" id="resetExercise" disabled>Reset</button>
+                    </div>
+                </div>
+
+                <!-- Exercise Area -->
+                <div class="exercise-area" id="exerciseArea" style="display: none;">
+                    <div class="timer-section">
+                        <div class="timer-display">
+                            <div class="timer-circle">
+                                <svg width="150" height="150">
+                                    <circle cx="75" cy="75" r="65" stroke="#e2e8f0" stroke-width="10" fill="transparent"/>
+                                    <circle id="timerProgress" cx="75" cy="75" r="65" stroke="#4a90e2" stroke-width="10" 
+                                            fill="transparent" stroke-dasharray="408" stroke-dashoffset="408"/>
+                                </svg>
+                                <div class="timer-text">
+                                    <div class="time-remaining" id="timeRemaining">00:00</div>
+                                    <div class="timer-label">remaining</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="interval-display">
+                            <div class="current-interval" id="currentInterval">
+                                <div class="interval-text" id="intervalText">Prepare...</div>
+                                <div class="interval-timer" id="intervalTimer">5</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="focus-guidance">
+                        <div class="focus-target" id="focusTarget">
+                            <div class="target-near" id="targetNear">
+                                <div class="thumb-icon">👍</div>
+                                <div class="target-label">Focus on your thumb</div>
+                                <div class="distance-info">~6 inches (15cm) away</div>
+                            </div>
+                            
+                            <div class="target-far" id="targetFar" style="display: none;">
+                                <div class="far-icon">🏔️</div>
+                                <div class="target-label">Focus on distant object</div>
+                                <div class="distance-info">At least 10 feet (3m) away</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exercise-progress">
+                        <div class="progress-info">
+                            <span>Cycle: <span id="currentCycle">0</span>/<span id="totalCycles">0</span></span>
+                            <span>Phase: <span id="currentPhase">Starting</span></span>
+                        </div>
+                        
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Summary -->
+                <div class="results-summary" id="resultsSummary" style="display: none;">
+                    <h3>Exercise Complete!</h3>
+                    
+                    <div class="results-grid">
+                        <div class="result-card">
+                            <h4>Duration</h4>
+                            <div class="result-value" id="completedDuration">0:00</div>
+                        </div>
+                        
+                        <div class="result-card">
+                            <h4>Focus Cycles</h4>
+                            <div class="result-value" id="completedCycles">0</div>
+                        </div>
+                        
+                        <div class="result-card">
+                            <h4>Completion</h4>
+                            <div class="result-value" id="completionRate">100%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="exercise-feedback" id="exerciseFeedback">
+                        Great job! Regular focus exercises can help maintain healthy eye function.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Clinical Information -->
+            <div class="clinical-info">
+                <h4>About Focus Distance Exercises</h4>
+                <p>
+                    Focus distance exercises help train the eye's accommodation system, which is responsible 
+                    for adjusting focus between near and far objects. Regular practice can help reduce eye strain 
+                    and maintain visual flexibility, especially beneficial for people who spend long periods 
+                    focusing at close distances (computer work, reading).
+                </p>
+                
+                <div class="warning">
+                    <strong>Important:</strong> This is a simple exercise demonstration for UX exploration. 
+                    For comprehensive eye care and vision therapy, always consult with qualified eye care professionals.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Visual Toolkit - Eye Health Demonstrator</p>
+                <p>For UX exploration with patients under ophthalmologic control</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="wellness.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+{
+  "name": "oculox-visual-toolkit",
+  "version": "1.0.0",
+  "description": "Visual Toolkit for Eye Health - Interactive web platform for ophthalmic patient engagement",
+  "main": "index.html",
+  "scripts": {
+    "serve": "python -m http.server 8000",
+    "serve:node": "npx serve . -p 8000",
+    "serve:php": "php -S localhost:8000",
+    "lint": "echo 'ESLint configuration pending'",
+    "test": "echo 'Tests pending implementation'",
+    "build": "echo 'No build process required - static site'",
+    "deploy": "echo 'Deploy to GitHub Pages'",
+    "validate": "echo 'HTML/CSS validation pending'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muracciolei/OCULOX-VISUAL-TOOLKIT.git"
+  },
+  "keywords": [
+    "ophthalmology",
+    "eye-health",
+    "visual-tests",
+    "amsler-grid",
+    "color-vision",
+    "contrast-sensitivity",
+    "eye-exercises",
+    "accessibility",
+    "healthcare",
+    "medical-demo",
+    "ux-exploration"
+  ],
+  "author": {
+    "name": "Ivan Muracciole",
+    "url": "https://github.com/muracciolei"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/muracciolei/OCULOX-VISUAL-TOOLKIT/issues"
+  },
+  "homepage": "https://muracciolei.github.io/OCULOX-VISUAL-TOOLKIT/",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not IE 11"
+  ],
+  "devDependencies": {},
+  "dependencies": {},
+  "files": [
+    "index.html",
+    "shared.css",
+    "amsler/",
+    "color-contrast/",
+    "wellness/",
+    "assets/",
+    "README.md",
+    "LICENSE"
+  ]
+}

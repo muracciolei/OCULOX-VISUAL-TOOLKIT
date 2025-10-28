@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color & Contrast Check - Visual Toolkit</title>
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="stylesheet" href="color.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">�️ Visual Toolkit</a>
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../amsler/amsler.html">Amsler Grid</a></li>
+                        <li><a href="../wellness/exercises.html">Eye Wellness</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="test-header">
+                <h1>Color & Contrast Check</h1>
+                <p class="test-subtitle">Color perception and contrast sensitivity evaluation</p>
+            </div>
+
+            <!-- Test Selection -->
+            <div class="test-selector">
+                <div class="test-option active" data-test="color" role="button" tabindex="0" aria-label="Select color differentiation test">
+                    <h3>🌈 Color Differentiation</h3>
+                    <p>Detect subtle variations in color tones</p>
+                </div>
+                <div class="test-option" data-test="contrast" role="button" tabindex="0" aria-label="Select contrast sensitivity test">
+                    <h3>⚫ Contrast Sensitivity</h3>
+                    <p>Identify patterns with decreasing contrast</p>
+                </div>
+            </div>
+
+            <!-- Color Differentiation Test -->
+            <div class="test-section active" id="colorTest">
+                <div class="instruction-panel">
+                    <h3>📋 Color Test Instructions</h3>
+                    <p><strong>Look at each color block and identify if you can see differences in tone.</strong></p>
+                    <ul>
+                        <li>Position yourself 60-75 cm from the screen</li>
+                        <li>Use natural light or uniform white LED lighting</li>
+                        <li>Adjust screen brightness to 75-80%</li>
+                        <li>Click on blocks that appear different from the background</li>
+                    </ul>
+                </div>
+
+                <div class="test-controls">
+                    <button id="startColorTest" class="btn btn-primary">Start Color Test</button>
+                    <button id="resetColorTest" class="btn btn-secondary">Reset</button>
+                    <div class="score-display">
+                        Score: <span id="colorScore">0</span>/5
+                    </div>
+                </div>
+
+                <div class="color-test-area" id="colorTestArea" style="display: none;">
+                    <div class="color-grid" id="colorGrid" role="grid" aria-label="Color differentiation test grid">
+                        <!-- Color blocks will be generated here -->
+                    </div>
+                    <div class="test-feedback" id="colorFeedback"></div>
+                </div>
+            </div>
+
+            <!-- Contrast Sensitivity Test -->
+            <div class="test-section" id="contrastTest" style="display: none;">
+                <div class="instruction-panel">
+                    <h3>📋 Contrast Test Instructions</h3>
+                    <p><strong>Identify the orientation of the stripe patterns (horizontal, vertical, or diagonal).</strong></p>
+                    <ul>
+                        <li>Sit 50-60 cm from the screen</li>
+                        <li>Reduce ambient lighting but don't work in darkness</li>
+                        <li>Keep your gaze relaxed and focused at center</li>
+                        <li>Click the button matching the stripe direction you see</li>
+                    </ul>
+                </div>
+
+                <div class="test-controls">
+                    <button id="startContrastTest" class="btn btn-primary">Start Contrast Test</button>
+                    <button id="resetContrastTest" class="btn btn-secondary">Reset</button>
+                    <div class="contrast-info">
+                        Contrast Level: <span id="contrastLevel">100%</span>
+                    </div>
+                </div>
+
+                <div class="contrast-test-area" id="contrastTestArea" style="display: none;">
+                    <div class="pattern-display">
+                        <canvas id="contrastCanvas" width="300" height="300" role="img" aria-label="Contrast sensitivity test pattern"></canvas>
+                    </div>
+                    <div class="orientation-controls">
+                        <button class="orientation-btn" data-orientation="horizontal" aria-label="Horizontal stripes">Horizontal ━</button>
+                        <button class="orientation-btn" data-orientation="vertical" aria-label="Vertical stripes">Vertical ┃</button>
+                        <button class="orientation-btn" data-orientation="diagonal" aria-label="Diagonal stripes">Diagonal ╱</button>
+                        <button class="orientation-btn" data-orientation="none" aria-label="No visible pattern">No Pattern</button>
+                    </div>
+                    <div class="test-feedback" id="contrastFeedback"></div>
+                </div>
+            </div>
+
+            <!-- Results Summary -->
+            <div class="results-summary" id="resultsSummary" style="display: none;">
+                <h3>📊 Test Results</h3>
+                <div class="result-grid">
+                    <div class="result-item">
+                        <h4>Color Differentiation</h4>
+                        <div class="result-value" id="finalColorScore">Not completed</div>
+                    </div>
+                    <div class="result-item">
+                        <h4>Contrast Sensitivity</h4>
+                        <div class="result-value" id="finalContrastScore">Not completed</div>
+                    </div>
+                </div>
+                <div class="overall-assessment" id="overallAssessment">
+                    Complete both tests to receive an overall assessment.
+                </div>
+            </div>
+
+            <!-- Information Panel -->
+            <div class="info-panel">
+                <h3>ℹ️ About Color & Contrast Testing</h3>
+                
+                <div class="info-section">
+                    <h4>Color Differentiation Test</h4>
+                    <p>
+                        This test evaluates your ability to distinguish subtle variations in color tones.
+                        It can help detect:
+                    </p>
+                    <ul>
+                        <li><strong>Color blindness:</strong> Difficulty perceiving certain colors</li>
+                        <li><strong>Protanopia:</strong> Reduced sensitivity to red light</li>
+                        <li><strong>Deuteranopia:</strong> Reduced sensitivity to green light</li>
+                        <li><strong>Tritanopia:</strong> Reduced sensitivity to blue light (rare)</li>
+                    </ul>
+                </div>
+
+                <div class="info-section">
+                    <h4>Contrast Sensitivity Test</h4>
+                    <p>
+                        Contrast sensitivity measures your ability to distinguish objects from their background
+                        when the brightness difference is minimal. Important for:
+                    </p>
+                    <ul>
+                        <li><strong>Night vision:</strong> Detecting objects in low light conditions</li>
+                        <li><strong>Driving safety:</strong> Seeing vehicles and signs in adverse conditions</li>
+                        <li><strong>Reading ability:</strong> Distinguishing text in various lighting</li>
+                        <li><strong>Early detection:</strong> Some disorders affect contrast sensitivity first</li>
+                    </ul>
+                </div>
+                
+                <div class="clinical-note">
+                    <strong>Clinical Note:</strong> These tests provide preliminary screening results. 
+                    For comprehensive evaluation and definitive diagnosis, consult with an eye care professional.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Visual Toolkit - Color & Contrast Check</p>
+                <p>Educational tool based on clinical principles</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="color.js"></script>
+</body>
+</html>

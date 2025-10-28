@@ -1,0 +1,301 @@
+/* Amsler Test Specific Styles */
+
+.test-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.test-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-medium);
+    margin-top: 10px;
+}
+
+/* Instructions Panel */
+.instruction-panel {
+    background: var(--light-gray);
+    border-left: 4px solid var(--primary-blue);
+    padding: 25px;
+    margin: 30px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.instruction-panel h3 {
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+}
+
+.instruction-panel p {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.instruction-list {
+    list-style: none;
+    counter-reset: step-counter;
+    margin: 20px 0;
+}
+
+.instruction-list li {
+    counter-increment: step-counter;
+    margin: 15px 0;
+    padding-left: 40px;
+    position: relative;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+.instruction-list li::before {
+    content: counter(step-counter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: var(--primary-blue);
+    color: var(--clinical-white);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Grid Container */
+.grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+    background: var(--clinical-white);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+#amslerGrid {
+    background: var(--clinical-white);
+    border: 2px solid var(--text-dark);
+    display: block;
+}
+
+/* Report Section */
+.report-section {
+    text-align: center;
+    margin: 40px 0;
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: var(--clinical-white);
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: modalEnter 0.3s ease-out;
+}
+
+@keyframes modalEnter {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.modal-header {
+    background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+    color: var(--clinical-white);
+    padding: 20px 25px;
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: var(--clinical-white);
+}
+
+.close-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: var(--clinical-white);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.modal-body {
+    padding: 30px 25px;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--border-gray);
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--light-blue);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.form-actions .btn {
+    flex: 1;
+}
+
+/* Information Panel */
+.info-panel {
+    background: var(--clinical-white);
+    border: 1px solid var(--border-gray);
+    border-radius: 8px;
+    padding: 30px;
+    margin-top: 40px;
+}
+
+.info-panel h3 {
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+}
+
+.info-panel ul {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+.info-panel li {
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+.clinical-note {
+    background: #fef3c7;
+    border: 1px solid #f59e0b;
+    border-radius: 6px;
+    padding: 15px;
+    margin-top: 20px;
+    color: #92400e;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .grid-container {
+        padding: 20px;
+    }
+    
+    #amslerGrid {
+        width: 300px !important;
+        height: 300px !important;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 10px;
+    }
+    
+    .modal-body {
+        padding: 20px 15px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    #amslerGrid {
+        width: 250px !important;
+        height: 250px !important;
+    }
+    
+    .grid-container {
+        padding: 15px;
+    }
+    
+    .instruction-panel {
+        padding: 20px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .modal,
+    .report-section,
+    header,
+    footer {
+        display: none;
+    }
+    
+    .grid-container {
+        break-inside: avoid;
+    }
+}
+
+/* Focus states for accessibility */
+.btn:focus,
+.close-btn:focus {
+    outline: 3px solid var(--accent-blue);
+    outline-offset: 2px;
+}
